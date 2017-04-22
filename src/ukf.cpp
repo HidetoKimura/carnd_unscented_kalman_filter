@@ -169,11 +169,6 @@ void UKF::ProcessMeasurement(MeasurementPackage meas_package) {
   float dt = (meas_package.timestamp_ - time_us_) / 1000000.0;
   time_us_ = meas_package.timestamp_;
 
-//  if( dt > 0.1 ) {  
-//    Prediction(0.05);
-//    dt -= 0.05;
-//  }
-
   Prediction(dt);
 
   if (use_radar_ && 
